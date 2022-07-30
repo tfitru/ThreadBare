@@ -32,6 +32,7 @@ public class ThreadTwoHashMap extends Thread {
 
         runMapOfSize(20);
 
+
     }
 
     private static void runMapOfSize(int size) {

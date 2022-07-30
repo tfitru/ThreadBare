@@ -31,6 +31,11 @@ public class ThreadTwoHashMapBroken extends Thread {
     public static void main(String[] args){
         ThreadTwoHashMapBroken tm = new ThreadTwoHashMapBroken(""+10);
 
+        // I had to press run three to four times to pass the test
+        // If the threads start at the same time there will be an error thrown
+        // Because the instance of the object are created at the same time and conflicting
+        // Occasionally it will work if the timing is able to separate the start and end
+
         // What's wrong with this idea??...
         new Thread("Run of " + 6){
             public void run(){
@@ -40,12 +45,13 @@ public class ThreadTwoHashMapBroken extends Thread {
         new Thread("Run of " + 8){
             public void run(){
                 tm.runMapOfSize(8);
+
             }
         }.start();
 
     }
 
-    private void runMapOfSize(int size) {
+    private void  runMapOfSize(int size) {
         System.out.println("Constructing HashMap of Size "+size);
         Integer threadCount = size;
 
